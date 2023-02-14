@@ -2,15 +2,15 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    colors: {
-      text1: "#111827",
-      text2: "#4b5563",
-      text3: "#737373",
-    },
     extend: {
       backgroundImage: {
         linerBG:
           "linear-gradient(315deg, hsla(202, 42%, 49%, 1) 0%, hsla(335, 69%, 47%, 1) 100%)",
+      },
+      colors: {
+        text1: "#111827",
+        text2: "#4b5563",
+        text3: "#737373",
       },
     },
   },
