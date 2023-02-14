@@ -11,6 +11,10 @@ module.exports = {
         text1: "#111827",
         text2: "#4b5563",
         text3: "#737373",
+        text4: "#a3a3a3",
+      },
+      fontFamily: {
+        'WorkSans': ['Work Sans, sans-serif'],
       },
     },
   },
