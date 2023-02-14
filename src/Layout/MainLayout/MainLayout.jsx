@@ -5,11 +5,11 @@ import NavBar from "../../Components/Global/NavBar/NavBar";
 
 const MainLayout = () => {
   return (
-    <div className='w-scree max-w-[1920px] mx-auto'>
+    <>
       <NavBar></NavBar>
       <Outlet></Outlet>
       <Footer></Footer>
-    </div>
+    </>
   );
 };
 
