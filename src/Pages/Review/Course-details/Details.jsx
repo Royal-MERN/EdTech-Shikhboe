@@ -51,6 +51,7 @@ const Details = () => {
       </div>
 
 
+
     </div>
   );
 };

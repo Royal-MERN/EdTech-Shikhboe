@@ -3,7 +3,7 @@ import React from 'react';
 const Learning = () => {
     return (
         <div>
-            <h3 classNameName='text-xl font-semibold text-text2'>কোর্সটি করে যা শিখবেন</h3>
+            <h3 className='text-xl font-semibold text-text2'>কোর্সটি করে যা শিখবেন</h3>
             <div className="flex items-center md:rounded-md md:border md:p-5 mt-5">
                 <div className="pt-2 md:p-6">
                     <ul className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_1fr] md:gap-4">
