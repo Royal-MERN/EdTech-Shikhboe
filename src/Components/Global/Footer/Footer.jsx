@@ -4,7 +4,7 @@ import SocialMedia from "../SocialMedia/SocialMedia";
 
 const Footer = () => {
   return (
-    <div className='bg-base-100 pt-12 mt-72 pb-5'>
+    <div className='bg-base-100 pt-12 pb-5'>
       <footer className='footer text-base-content emaxW justify-center md:justify-between gap-x-8'>
         <div className='flex md:justify-start justify-center items-center md:items-start flex-col'>
           <img src='../../../../public/images/logo.jpg' alt='' />

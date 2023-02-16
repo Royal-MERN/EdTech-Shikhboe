@@ -2,7 +2,7 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="h-screen w-full maxW">
+    <div className="w-full maxW">
      
     </div>
   );
