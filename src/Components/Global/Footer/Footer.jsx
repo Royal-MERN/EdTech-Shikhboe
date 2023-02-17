@@ -83,7 +83,7 @@ useEffect(() => {
           </div>
         </div>
       </footer>
-      <div className="divider mb-0"></div> 
+      <div className="divider mb-0"></div>
       <div className='py-5'>
         <p className='text-center text-sm text-text4'>
           Copyright © 2023 - All right reserved by ACME Industries Ltd
