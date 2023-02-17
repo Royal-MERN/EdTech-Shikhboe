@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { IoIosArrowUp } from "react-icons/io";
 import { Link } from "react-router-dom";
 import SocialMedia from "../SocialMedia/SocialMedia";
 
 const Footer = () => {
+  const [height, setHeight] = useState(window.scrollY);
+
+useEffect(() => {
+		window.onscroll = () => {
+			setHeight(window.scrollY);
+		};
+	}, []);
+
+	const moveToTop = () => {
+		window.scroll({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
+
+
   return (
     <div className='bg-base-100 pt-12 pb-5'>
       <footer className='footer text-base-content emaxW justify-center md:justify-between gap-x-8'>
@@ -72,6 +89,13 @@ const Footer = () => {
           Copyright © 2023 - All right reserved by ACME Industries Ltd
         </p>
       </div>
+      <span
+				onClick={moveToTop}
+				className={`${height > 100 ? "" : "hidden"
+					} cursor-pointer font-black font-2xl text-blue-700 fixed bottom-6 right-6 md:bottom-16 md:right-16 bg-blue-200 p-3 rounded-full z-10`}
+			>
+				<IoIosArrowUp />
+			</span>
     </div>
   );
 };
