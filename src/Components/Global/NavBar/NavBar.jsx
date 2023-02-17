@@ -20,7 +20,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="bg-base-100 sticky top-0">
+    <div className="bg-base-100 sticky top-0 z-50">
       <div className='navbar emaxW'>
         <div className='navbar-start'>
           <div className='dropdown'>
@@ -51,7 +51,7 @@ const NavBar = () => {
         </div>
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu-horizontal px-1'>
-          {menu}
+            {menu}
           </ul>
         </div>
         <div className='navbar-end'>

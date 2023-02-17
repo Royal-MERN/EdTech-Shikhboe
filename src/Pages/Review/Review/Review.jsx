@@ -1,11 +1,12 @@
 import React from 'react';
+import Course from '../Course-card/Course';
 import LeftSide from '../Left-bar/LeftSide';
 import RightSide from '../Right-Bar/RightSide';
 
 const Review = () => {
     return (
         <div className='maxW mt-8 pb-28'>
-            <div className='grid grid-cols-3 gap-10'>
+            <div className='grid md:grid-cols-1 lg:grid-cols-3 gap-10'>
                 {/* Left-bar-start */}
                 <div className='col-span-2'>
                     <LeftSide></LeftSide>
@@ -21,6 +22,7 @@ const Review = () => {
                 </div>
                 {/* Right-bar-end */}
             </div>
+            <Course />
         </div>
     );
 };

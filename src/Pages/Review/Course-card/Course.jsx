@@ -1,0 +1,18 @@
+import React from 'react';
+
+const Course = () => {
+    return (
+        <div className='my-10'>
+            <h3 className='text-text1 font-semibold text-xl'>আপনার জন্য আরও কিছু কোর্স</h3>
+            <div className='grid lg:grid-cols-4 md:grid-cols-1 gap-4 mt-5'>
+
+                <div className="border border-[#E5E7EB]  my-0 flex h-full min-w-[200px] max-w-[200px]  cursor-pointer flex-col overflow-hidden rounded transition-colors hover:border-green-400 md:min-w-[272px] md:rounded-[6px]"><div className="undefined object-fit: undefined"><img src="https://i.pinimg.com/originals/0b/c2/1d/0bc21d119acd73d6bf4653cde6396eed.jpg" alt="IELTS Course by Munzereen Shahid" height="152" width="272" ></img></div><div className="flex min-w-0 flex-1 flex-col justify-between gap-2 p-[14px]"><div><h2 className="mb-1 max-h-14 text-sm font-semibold line-clamp-2 md:text-lg ">IELTS Course by Munzereen Shahid</h2><h3 className="max-h-[50px] overflow-hidden truncate text-xs text-[#6B7280] md:text-sm">Munzereen Shahid</h3></div><div><p className="text-sm font-[600] text-[#1DAB55] md:text-lg">৳ 2500</p></div></div></div>
+                <div className="border border-[#E5E7EB]  my-0 flex h-full min-w-[200px] max-w-[200px]  cursor-pointer flex-col overflow-hidden rounded transition-colors hover:border-green-400 md:min-w-[272px] md:rounded-[6px]"><div className="undefined object-fit: undefined"><img src="https://i.pinimg.com/originals/0b/c2/1d/0bc21d119acd73d6bf4653cde6396eed.jpg" alt="IELTS Course by Munzereen Shahid" height="152" width="272" ></img></div><div className="flex min-w-0 flex-1 flex-col justify-between gap-2 p-[14px]"><div><h2 className="mb-1 max-h-14 text-sm font-semibold line-clamp-2 md:text-lg ">IELTS Course by Munzereen Shahid</h2><h3 className="max-h-[50px] overflow-hidden truncate text-xs text-[#6B7280] md:text-sm">Munzereen Shahid</h3></div><div><p className="text-sm font-[600] text-[#1DAB55] md:text-lg">৳ 2500</p></div></div></div>
+                <div className="border border-[#E5E7EB]  my-0 flex h-full min-w-[200px] max-w-[200px]  cursor-pointer flex-col overflow-hidden rounded transition-colors hover:border-green-400 md:min-w-[272px] md:rounded-[6px]"><div className="undefined object-fit: undefined"><img src="https://i.pinimg.com/originals/0b/c2/1d/0bc21d119acd73d6bf4653cde6396eed.jpg" alt="IELTS Course by Munzereen Shahid" height="152" width="272" ></img></div><div className="flex min-w-0 flex-1 flex-col justify-between gap-2 p-[14px]"><div><h2 className="mb-1 max-h-14 text-sm font-semibold line-clamp-2 md:text-lg ">IELTS Course by Munzereen Shahid</h2><h3 className="max-h-[50px] overflow-hidden truncate text-xs text-[#6B7280] md:text-sm">Munzereen Shahid</h3></div><div><p className="text-sm font-[600] text-[#1DAB55] md:text-lg">৳ 2500</p></div></div></div> <div className="border border-[#E5E7EB]  my-0 flex h-full min-w-[200px] max-w-[200px]  cursor-pointer flex-col overflow-hidden rounded transition-colors hover:border-green-400 md:min-w-[272px] md:rounded-[6px]"><div className="undefined object-fit: undefined"><img src="https://i.pinimg.com/originals/0b/c2/1d/0bc21d119acd73d6bf4653cde6396eed.jpg" alt="IELTS Course by Munzereen Shahid" height="152" width="272" ></img></div><div className="flex min-w-0 flex-1 flex-col justify-between gap-2 p-[14px]"><div><h2 className="mb-1 max-h-14 text-sm font-semibold line-clamp-2 md:text-lg ">IELTS Course by Munzereen Shahid</h2><h3 className="max-h-[50px] overflow-hidden truncate text-xs text-[#6B7280] md:text-sm">Munzereen Shahid</h3></div><div><p className="text-sm font-[600] text-[#1DAB55] md:text-lg">৳ 2500</p></div></div></div>
+
+            </div>
+        </div>
+    );
+};
+
+export default Course;
