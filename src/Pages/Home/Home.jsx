@@ -4,7 +4,7 @@ import Review from "../Review/Review/Review";
 
 const Home = () => {
   return (
-
+    <div>
     </div>
   );
 };
