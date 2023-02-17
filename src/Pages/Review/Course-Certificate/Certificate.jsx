@@ -2,7 +2,7 @@ import React from 'react';
 
 const Certificate = () => {
     return (
-        <div className='mt-10'>
+        <div className='mt-8'>
             <h3 className='mt-5 text-text1 font-semibold text-xl'>কোর্স সার্টিফিকেট</h3>
             <div className="py-2 mt-4 md:p-2 md:border rounded-md">
                 <div className=" md:p-6">
