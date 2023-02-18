@@ -1,4 +1,5 @@
 import React from 'react';
+import ClassRequired from '../ClassRequired/ClassRequired';
 import Certificate from '../Course-Certificate/Certificate';
 import Details from '../Course-details/Details';
 import Feedback from '../Feedback/Feedback';
@@ -19,6 +20,7 @@ const LeftSide = () => {
       <Learning />
       <Details />
       <Payment />
+      <ClassRequired />
       <Certificate />
       <Feedback />
 

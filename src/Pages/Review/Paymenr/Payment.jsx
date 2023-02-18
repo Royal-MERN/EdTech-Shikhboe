@@ -6,8 +6,8 @@ const Payment = () => {
         <div>
             <div className='mt-10'>
                 <h3 className='mt-5 text-text1 font-semibold text-xl'>যেভাবে পেমেন্ট করবেন</h3>
-                <div className="py-2 mt-4 md:p-2 md:border rounded-md">
-                    <h3 className='p-3'>কীভাবে পেমেন্ট করবেন তা বিস্তারিত জানতে<label htmlFor="modal" className="underline mx-1 text-green-400">এই ভিডিওটি দেখুন</label></h3>
+                <div className="p-4 mt-4  md:border rounded-md">
+                    <h3 className=''>কীভাবে পেমেন্ট করবেন তা বিস্তারিত জানতে<label htmlFor="modal" className="underline mx-1 text-green-400">এই ভিডিওটি দেখুন</label></h3>
 
 
 
