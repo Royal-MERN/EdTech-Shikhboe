@@ -9,7 +9,7 @@ import { UniveresityCourse } from "../../Components/UniversityCourse/University"
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="maxW">
     <Header></Header>
     <UniveresityCourse></UniveresityCourse>
     <LiveClass></LiveClass>
