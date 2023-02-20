@@ -1,24 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { IoIosArrowUp } from "react-icons/io";
+import React from "react";
 import { Link } from "react-router-dom";
 import SocialMedia from "../SocialMedia/SocialMedia";
 
 const Footer = () => {
-  const [height, setHeight] = useState(window.scrollY);
-
-useEffect(() => {
-		window.onscroll = () => {
-			setHeight(window.scrollY);
-		};
-	}, []);
-
-	const moveToTop = () => {
-		window.scroll({
-			top: 0,
-			behavior: "smooth",
-		});
-	};
-
 
   return (
     <div className='bg-base-100 pt-12 pb-5'>
@@ -38,7 +22,6 @@ useEffect(() => {
             <Link className='link link-hover text-base text-text2'>
             Join as a Teacher
             </Link>
-            <Link className='link link-hover text-base text-text2'>Design</Link>
             <Link className='link link-hover text-base text-text2'>
             Privacy policy
             </Link>
@@ -59,7 +42,6 @@ useEffect(() => {
             <Link className='link link-hover text-base text-text2'>
             Blog
             </Link>
-            <Link className='link link-hover text-base text-text2'>Jobs</Link>
             <Link className='link link-hover text-base text-text2'>
             Offers
             </Link>
@@ -78,9 +60,9 @@ useEffect(() => {
           </p>
           <p className='text-base text-text2'>
             Email -{" "}
-            <span className='text-primary link link-hover'>
+            <a href= "mailto:support@shikhboe.com" target='_blank' className='text-primary link link-hover'>
             support@shikhboe.com
-            </span>
+            </a>
           </p>
           <div className=''>
             <SocialMedia></SocialMedia>
@@ -93,13 +75,6 @@ useEffect(() => {
           Copyright © 2023 - All right reserved by ACME Industries Ltd
         </p>
       </div>
-      <span
-				onClick={moveToTop}
-				className={`${height > 100 ? "" : "hidden"
-					} cursor-pointer font-black font-2xl text-blue-700 fixed bottom-6 right-6 md:bottom-16 md:right-16 bg-blue-200 p-3 rounded-full z-10`}
-			>
-				<IoIosArrowUp />
-			</span>
     </div>
   );
 };
