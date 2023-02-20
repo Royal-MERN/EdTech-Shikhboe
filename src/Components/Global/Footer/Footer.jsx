@@ -24,8 +24,7 @@ useEffect(() => {
     <div className='bg-base-100 pt-12 pb-5'>
       <footer className='footer text-base-content emaxW justify-center md:justify-between gap-x-8'>
         <div className='flex md:justify-start justify-center items-center md:items-start flex-col'>
-          <img src='../../../../public/images/logo.jpg' alt='' />
-          <h2 className='text-xl font-semibold text-primary'>Shikhboe</h2>
+          <img className="w-48" src='../../../../public/images/logo/Shikhboe logo-01-01.png' alt='' />
           <p
             className='text-secondary text-lg'>
             Providing reliable tech since 1992

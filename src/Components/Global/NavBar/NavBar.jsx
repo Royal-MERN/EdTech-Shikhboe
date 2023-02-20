@@ -62,7 +62,7 @@ const NavBar = () => {
             </ul>
           </div>
           <Link to='/' className="">
-            <img src="../../../../public/images/logo.jpg" alt="" />
+            <img className="w-48" src="../../../../public/images/logo/Shikhboe logo-01-01.png" alt="" />
           </Link>
         </div>
         <div className='navbar-center hidden lg:flex'>
