@@ -10,7 +10,7 @@ import Teacher from '../Teacher-profile/Teacher';
 const LeftSide = () => {
   return (
     <div>
-      <div className='w-100'>
+      <div className='emaxW'>
         <h1 className='text-text1 font-WorkSans text-3xl font-bold'>ঘরে বসে Spoken English</h1>
         <p className='mt-8 text-text2 text-xl'>Learn to speak fluent English. Become a confident English speaker in your everyday life. A complete spoken English course for learners of all levels & backgrounds.</p>
 

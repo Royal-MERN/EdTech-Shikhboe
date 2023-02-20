@@ -8,7 +8,7 @@ const Review = () => {
         <div className='maxW mt-8 pb-28'>
             <div className='grid md:grid-cols-1 lg:grid-cols-3 gap-10'>
                 {/* Left-bar-start */}
-                <div className='col-span-2 lg:w-full w-96'>
+                <div className='col-span-2 lg:w-full md:px-3 w-80'>
                     <LeftSide></LeftSide>
                 </div>
                 {/* Left-bar-end */}
