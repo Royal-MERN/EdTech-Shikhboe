@@ -4,7 +4,7 @@ import SquareBtn from '../../Components/Global/Buttons/SquareBtn';
 
 const Test = () => {
     return (
-        <div>
+        <div className='h-screen'>
              <h1>this is home</h1>
       <Link className="squareBtn">hi</Link>
       <SquareBtn to={"link"}>hi</SquareBtn>
