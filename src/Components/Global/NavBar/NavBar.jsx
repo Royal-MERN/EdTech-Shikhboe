@@ -10,16 +10,18 @@ const NavBar = () => {
   const menu = (
     <>
       <li className="hover:text-primary px-2 lg:px-5 py-2 lg:py-0">
-        <NavLink to='/'>Skills</NavLink>
+        <NavLink to='/'>Home</NavLink>
+      </li>
+
+      <li className="hover:text-primary px-2 lg:px-5 py-2 lg:py-0">
+        <NavLink to='/'>Academic Program</NavLink>
       </li>
       <li className="hover:text-primary px-2 lg:px-5 py-2 lg:py-0">
-        <NavLink to='/'>Admission</NavLink>
+        <NavLink to='/'>Courses</NavLink>
       </li>
+      
       <li className="hover:text-primary px-2 lg:px-5 py-2 lg:py-0">
-        <NavLink to='/'>Jobs</NavLink>
-      </li>
-      <li className="hover:text-primary px-2 lg:px-5 py-2 lg:py-0">
-        <NavLink to='/'>Online Batch</NavLink>
+        <NavLink to='/'>Affiliate</NavLink>
       </li>
     </>
   );

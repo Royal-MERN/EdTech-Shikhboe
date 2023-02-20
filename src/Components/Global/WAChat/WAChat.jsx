@@ -6,7 +6,7 @@ const WAChat = () => {
   return (
     <div>
       <FloatingWhatsApp
-        phoneNumber="123456789"
+        phoneNumber="+8801603842503"
         accountName="Shikhboe"
         chatMessage="Hello World"
         avatar="https://t3.ftcdn.net/jpg/02/95/94/94/360_F_295949484_8BrlWkTrPXTYzgMn3UebDl1O13PcVNMU.jpg"

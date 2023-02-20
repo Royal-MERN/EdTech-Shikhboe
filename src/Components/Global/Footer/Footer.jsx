@@ -36,14 +36,17 @@ useEffect(() => {
               Company
             </span>
             <Link className='link link-hover text-base text-text2'>
-              Branding
+            Join as a Teacher
             </Link>
             <Link className='link link-hover text-base text-text2'>Design</Link>
             <Link className='link link-hover text-base text-text2'>
-              Marketing
+            Privacy policy
             </Link>
             <Link className='link link-hover text-base text-text2'>
-              Advertisement
+            Become an Affiliate
+            </Link>
+            <Link className='link link-hover text-base text-text2'>
+            Refund policy
             </Link>
           </div>
           <div className="flex flex-col gap-y-2">
@@ -51,16 +54,19 @@ useEffect(() => {
               Others
             </span>
             <Link className='link link-hover text-base text-text2'>
-              About us
+              About
             </Link>
             <Link className='link link-hover text-base text-text2'>
-              Contact
+            Blog
             </Link>
             <Link className='link link-hover text-base text-text2'>Jobs</Link>
             <Link className='link link-hover text-base text-text2'>
-              Press kit
+            Offers
             </Link>
-          </div>{" "}
+            <Link className='link link-hover text-base text-text2'>
+            Crash Courses
+            </Link>
+          </div>
         </div>
         <div className="flex md:justify-start justify-center items-center md:items-start flex-col">
           <span className='capitalize text-base font-semibold font-WorkSans text-text2'>
@@ -68,13 +74,12 @@ useEffect(() => {
           </span>
           <p className='text-base text-text2'>
             Contact -{" "}
-            <span className='text-primary link link-hover'>16910</span>
+            <a href="tel:+8801603842503" className='text-primary link link-hover'>+8801603842503</a>
           </p>
-          <p className='text-base text-text2'>SMS - 10MSHelp to 26969 (24X7)</p>
           <p className='text-base text-text2'>
             Email -{" "}
             <span className='text-primary link link-hover'>
-              support@10minuteschool.com
+            support@shikhboe.com
             </span>
           </p>
           <div className=''>
