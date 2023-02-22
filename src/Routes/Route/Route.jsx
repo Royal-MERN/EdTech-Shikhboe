@@ -4,6 +4,7 @@ import Error404 from "../../Pages/404Error/Error404";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import PrivacyPolicy from "../../Pages/PrivacyPolicy/PrivacyPolicy";
+import Profile from "../../Pages/Profile/Profile";
 import Register from "../../Pages/Register/Register";
 import Review from "../../Pages/Review/Review/Review";
 import Test from "../../Pages/test/Test";
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path:'/course-details',
         element:<Review></Review>
+      },
+      {
+        path:'/profile',
+        element:<Profile></Profile>
       }
     ],
   },
