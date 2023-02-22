@@ -26,12 +26,12 @@ export const UniveresityCourse = () => {
     >
       { UniveresityCourseData.map((slide) => (
         <SwiperSlide key={slide.img}>
-          <div className="card card-compact w-[286px] h-[290px] bg-base-100 ">
+          <div className="card card-compact w-[286px] md:w-[220px] h-[290px] md:h-[240px] bg-base-100 ">
             <figure>
               <img src={slide.img} className="bg-cover" alt="" />
             </figure>
             <div className="card-body">
-              <h2 className="font-bold text-lg">{slide.title}</h2>
+              <h2 className="font-bold text-lg md:text-sm">{slide.title}</h2>
               <p className="text-green-500 text-lg">বিস্তারিত </p>
             </div>
           </div>

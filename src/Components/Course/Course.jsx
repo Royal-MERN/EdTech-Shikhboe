@@ -5,7 +5,7 @@ const Course = ({data}) => {
   const {img,title, price} =data
   return (
     <div>
-      <div className="card card-compact w-[286px] bg-base-100 ">
+      <div className="card mb-4 card-compact w-[286px] md:w-[220px] bg-base-100 ">
         <figure>
           <img
             src={img}
