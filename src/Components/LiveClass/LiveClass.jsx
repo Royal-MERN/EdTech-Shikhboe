@@ -5,8 +5,8 @@ const LiveClass = () => {
   return (
     <div className="mt-32 w-[90%] mx-auto">
       <div>
-        <h3 className="text-red-500 font-bold text-center mb-12">ক্লাস ৫-১২</h3>
-        <h2 className="font-bold text-4xl text-center mb-10">
+        <h3 className="text-red-500 font-bold text-center mb-3 md:mb-10 lg:mb-12">ক্লাস ৫-১২</h3>
+        <h2 className="font-bold lg:text-4xl text-2xl text-center lg:mb-10 md:mb-8 mb-4">
           বছর জুড়ে অনলাইন ব্যাচে কী কী থাকছে?
         </h2>
         <h3 className=" text-center ">
@@ -14,8 +14,8 @@ const LiveClass = () => {
           পড়াশুনার অগ্রযাত্রা
         </h3>
       </div>
-      <div className="middle-div grid grid-cols-2 mt-16">
-        <div className="text-part mt-24">
+      <div className="middle-div grid lg:grid-cols-2 md:mt-14 mt-2 lg:mt-16">
+        <div className="text-part lg:mt-24 md:mt-24 mt-5">
           <div>
             <div className="collapse mb-4 rounded  after:bg-slate-300 hover:bg-slate-300  hover:border-green-200  border-slate-300 border-solid border-2">
               <input type="checkbox" />
@@ -56,7 +56,7 @@ const LiveClass = () => {
           <img src={LiveImg} alt="" />
         </div>
       </div>
-      <div className="mb-4 ml-96 mr-96">
+      <div className="mb-4 lg:ml-96 mr-16 ml-20 mt-4 md:ml-72 md:mr-72">
       <button className="p-4 rounded hover:px-5 hover:bg-green-500 bg-green-400 text-white">আপনার ক্লাস বেছে নিন</button>
       </div>
     </div>
