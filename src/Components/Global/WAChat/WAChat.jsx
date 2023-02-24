@@ -4,7 +4,7 @@ import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 const WAChat = () => {
   return (
-    <div>
+    <div className='w-5 h-5'>
       <FloatingWhatsApp
         phoneNumber="+8801603842503"
         accountName="Shikhboe"
