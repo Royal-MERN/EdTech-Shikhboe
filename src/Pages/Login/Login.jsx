@@ -1,153 +1,86 @@
-import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
-import { useContext } from 'react';
-import { useForm } from "react-hook-form";
-import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
+import { FcGoogle } from "react-icons/fc";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-	const navigate = useNavigate()
-	const { FacebookSignIn, GoogleSignIn, login, setDbUser } = useContext(AuthContext);
-	const FacebookProvider = new FacebookAuthProvider()
-	const GoogleProvider = new GoogleAuthProvider()
-	
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-		reset,
-	} = useForm();
-
-	const facebookLogin = () => {
-		FacebookSignIn(FacebookProvider)
-			.then((result) => {
-				console.log(result);
-			})
-			.catch((err) => console.error(err));
-	};
-
-	const googleLogin = () => {
-		GoogleSignIn(GoogleProvider)
-			.then((result) => {
-				console.log(result);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	};
-
-	
-
-	const onSubmit = (data) => {
-		// console.log(data);
-		const { email, password } = data;
-		login(email, password)
-		.then((result)=>{
-			const user=reset.user;
-		})
-		.catch(err=>console.log(err))
-			
-	};
-
 	return (
-		<section className="h-full max-w-[85%] mx-auto my-16">
-			<div className="px-6 h-full text-gray-800">
-				<div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-					<div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-						<img
-							src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-							className="w-full"
-							alt="Sample image"
-						/>
-					</div>
-					<div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-						<form onSubmit={handleSubmit(onSubmit)}>
-							<div className="flex flex-row items-center justify-center lg:justify-start">
-								<p className="text-xl mb-0 mr-4 font-bold">Login in with</p>
-								<button
-									type="button"
-									data-mdb-ripple="true"
-									data-mdb-ripple-color="light"
-									className="inline-block p-3 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-400 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
-									onClick={googleLogin}
-								>
-									<BsGoogle className="text-lg" />
-								</button>
-
-								<button
-									type="button"
-									data-mdb-ripple="true"
-									data-mdb-ripple-color="light"
-									className="inline-block p-3 bg-blue-500 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-400 hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
-									onClick={facebookLogin}
-								>
-									<BsFacebook className="text-lg" />
-								</button>
-							</div>
-
-							<div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-								<p className="text-center font-semibold mx-4 mb-0">Or</p>
-							</div>
-
-							<div className="mb-6">
-								<input
-									type="email"
-									className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-									id="email"
-									placeholder="Email address"
-									{...register("email", {
-										required: "Email address is require",
-									})}
-								/>
-								{errors.email && <span>{errors.email?.message}</span>}
-							</div>
-
-							<div className="mb-2">
-								<input
-									type="password"
-									className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-									id="password"
-									placeholder="Password"
-									{...register("password", {
-										required: "Password is require",
-									})}
-								/>
-								{errors.password && <span>{errors.password?.message}</span>}
-							</div>
-
-							<div className="flex justify-between items-center mb-6">
-								<Link
-									to="/resetPass"
-									className="text-gray-800 hover:text-blue-500 text-sm"
-								>
-									Forgot password?
-								</Link>
-							</div>
-
-							<div className="text-center lg:text-left">
-								<button
-									type="submit"
-									className="block w-full md:w-40 md:inline-block px-7 py-3 bg-blue-500 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-600 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-								>
-									Login
-								</button>
-								<p className="text-sm mt-2 pt-1 mb-0">
-									Don't have an account?
-									<Link
-										to="/register"
-										className="text-blue-400 hover:text-blue-700 ml-2 transition duration-200 ease-in-out"
-									>
-										Register
-									</Link>
-									{" "}here.
-								</p>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</section>
+		<>
+		<section className='maxW py-10 lg:flex justify-center items-center gap-x-10 '>
+        <div className='w-2/5 hidden lg:block'>
+          <img src='https://iili.io/HXpwILv.png' alt='' />
+        </div>
+        <div className='lg:w-2/5 w-full'>
+          <div className='w-full max-w-md p-8 space-y-3 rounded-xl shadow-md mx-auto'>
+            <h3 className='text-2xl font-bold text-center'>Login</h3>
+            <form
+              noValidate=''
+              action=''
+              className='space-y-6 ng-untouched ng-pristine ng-valid'>
+              <div className='space-y-1 text-sm'>
+                <label htmlFor='username' className='block dark:text-gray-700'>
+                  Username
+                </label>
+                <input
+                  type='text'
+                  name='username'
+                  id='username'
+                  placeholder='jon@example.com'
+                  className='w-full px-4 py-3 rounded-md bg-transparent border-2 focus:border-primary outline-none'
+                />
+              </div>
+              <div className='space-y-1 text-sm'>
+                <label htmlFor='password' className='block dark:text-gray-700'>
+                  Password
+                </label>
+                <input
+                  type='password'
+                  name='password'
+                  id='password'
+                  placeholder='Password must be 8 character'
+                  className='w-full px-4 py-3 rounded-md bg-transparent border-2 focus:border-primary outline-none'
+                />
+                <div className='flex justify-end text-xs dark:text-gray-400'>
+                  <a rel='noopener noreferrer' className="link link-primary" href='#'>
+                    Forgot Password?
+                  </a>
+                </div>
+              </div>
+              <button className='block w-full p-3 text-center rounded-sm btn-primary'>
+                Sign in
+              </button>
+            </form>
+            <div className='flex items-center pt-4 space-x-1'>
+              <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
+              <p className='px-3 text-sm dark:text-gray-400'>
+                Login with social accounts
+              </p>
+              <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
+            </div>
+            <div className='flex justify-center space-x-4'>
+              <button
+                aria-label='Log in with Google'
+                className='p-3 rounded-sm'>
+               <FcGoogle className="h-9 w-9"/>
+              </button>
+              <button
+                aria-label='Log in with Twitter'
+                className='p-3 rounded-sm'>
+                <img className="h-8 w-8" src="https://iili.io/HXy95xe.png" alt="" />
+              </button>
+            </div>
+            <p className='text-xs text-center sm:px-6 dark:text-gray-400'>
+              Don't have an account? 
+              <Link
+                rel='noopener noreferrer'
+                to='/register'
+                className='link link-primary'>
+                Sign up
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>	
+		</>
 	);
 };
 
