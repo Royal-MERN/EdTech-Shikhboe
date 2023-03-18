@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../Context/AuthProvider";
 
 
 
 const Register = () => {
+
+
+   // error message storage
+   const [signUPError, setSignUPError] = useState("");
+
+    //get Authentication function
+    const {createNewUser, }= useAuth();
+
+
  // get From-hook function
  const {
   register,
@@ -13,10 +23,27 @@ const Register = () => {
   handleSubmit,
   reset,
 } = useForm();
-  const onSubmit = data => {
-    console.log(data)
-    reset()
-  };
+
+// SignUP From submit or Create user handel
+const handelSignUP = (data) => {
+  setSignUPError("");
+  createNewUser(data.email, data.password)
+    .then((result) => {
+      console.log(result);
+      if (result?.user?.uid) {
+       console.log(result);
+      }
+    })
+    .catch((error) => {
+      const errorMessage = error?.message?.split("/")[1];
+      setSignUPError(errorMessage?.split(")")[0]);
+      console.log(error);
+    })
+    .finally(() => {
+      
+    });
+};
+
   return (
     <>
       <section className='maxW py-10 lg:flex justify-center items-center gap-x-10 '>
@@ -27,7 +54,7 @@ const Register = () => {
           <div className='w-full max-w-md p-8 space-y-3 rounded-xl shadow-md mx-auto'>
             <h3 className='text-2xl font-bold text-center'>Register</h3>
             <form
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(handelSignUP)}
               className='space-y-6 ng-untouched ng-pristine ng-valid'>
               <div className='space-y-1 text-sm'>
                 <label htmlFor='username' className='block dark:text-gray-700'>
