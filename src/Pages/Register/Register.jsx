@@ -9,7 +9,7 @@ const Register = () => {
   const [signUPError, setSignUPError] = useState("");
 
   //get Authentication function
-  const { createNewUser,googleLogIn,setLoading } = useAuth();
+  const { createNewUser, googleLogIn, setLoading, facebookLogin } = useAuth();
 
   // get From-hook function
   const {
@@ -37,13 +37,30 @@ const Register = () => {
       .finally(() => {});
   };
 
-   // Google login handel
-   const handelGoogleLogin = () => {
+  // Google login handel
+  const handelGoogleLogin = () => {
     googleLogIn()
       .then((result) => {
         console.log(result);
         if (result?.user?.uid) {
-          
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        const errorMessage = error?.message?.split("/")[1];
+        setLoginError(errorMessage?.split(")")[0]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  //Facebook login handel
+  const handelFacebookLogin = () => {
+    facebookLogin()
+      .then((result) => {
+        console.log(result);
+        if (result?.user?.uid) {
         }
       })
       .catch((error) => {
@@ -156,12 +173,14 @@ const Register = () => {
               <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
             </div>
             <div className='flex justify-center space-x-4'>
-              <button onClick={()=>handelGoogleLogin()}
+              <button
+                onClick={() => handelGoogleLogin()}
                 aria-label='Log in with Google'
                 className='p-3 rounded-sm'>
                 <FcGoogle className='h-9 w-9' />
               </button>
               <button
+                onClick={() => handelFacebookLogin()}
                 aria-label='Log in with Twitter'
                 className='p-3 rounded-sm'>
                 <img

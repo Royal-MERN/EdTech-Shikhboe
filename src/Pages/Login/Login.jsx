@@ -12,7 +12,7 @@ const Login = () => {
   const [loginError, setLoginError] = useState("");
 
   //get Authentication function
-  const { logIN, setLoading,googleLogIn} = useAuth();
+  const { logIN, setLoading,googleLogIn,facebookLogin} = useAuth();
 
   // get From-hook function
   const {
@@ -57,6 +57,24 @@ const Login = () => {
         setLoading(false);
       });
   };
+
+  //Facebook login handel
+  const handelFacebookLogin = () => {
+    facebookLogin().then((result) => {
+      console.log(result);
+      if (result?.user?.uid) {
+        
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      const errorMessage = error?.message?.split("/")[1];
+      setLoginError(errorMessage?.split(")")[0]);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+  }
 
   return (
     <>
@@ -139,7 +157,8 @@ const Login = () => {
                 className='p-3 rounded-sm'>
                 <FcGoogle className='h-9 w-9' />
               </button>
-              <button
+              <button 
+              onClick={()=>handelFacebookLogin()}
                 aria-label='Log in with Twitter'
                 className='p-3 rounded-sm'>
                 <img
