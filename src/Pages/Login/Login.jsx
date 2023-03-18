@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../Context/AuthProvider";
 
 const Login = () => {
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  // error message storage
+  const [loginError, setLoginError] = useState("");
+
+  //get Authentication function
+  const { logIN, setLoading,googleLogIn} = useAuth();
+
   // get From-hook function
   const {
     register,
@@ -11,9 +21,41 @@ const Login = () => {
     handleSubmit,
     reset,
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
+
+  // Login From submit or user Login handel
+  const handleLogin = (data) => {
+    setLoginError("");
+    logIN(data.email, data.password)
+      .then(() => {
+        navigate(from, { replace: true });
+        reset();
+      })
+      .catch((error) => {
+        const errorMessage = error.message.split("/")[1].split(")");
+        setLoginError(errorMessage[0]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+   // Google login handel
+   const handelGoogleLogin = () => {
+    googleLogIn()
+      .then((result) => {
+        console.log(result);
+        if (result?.user?.uid) {
+          
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        const errorMessage = error?.message?.split("/")[1];
+        setLoginError(errorMessage?.split(")")[0]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -26,7 +68,7 @@ const Login = () => {
           <div className='w-full max-w-md p-8 space-y-3 rounded-xl shadow-md mx-auto'>
             <h3 className='text-2xl font-bold text-center'>Login</h3>
             <form
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(handleLogin)}
               className='space-y-6 ng-untouched ng-pristine ng-valid'>
               <div className='space-y-1 text-sm'>
                 <label htmlFor='username' className='block dark:text-gray-700'>
@@ -92,7 +134,7 @@ const Login = () => {
               <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
             </div>
             <div className='flex justify-center space-x-4'>
-              <button
+              <button onClick={()=>handelGoogleLogin()}
                 aria-label='Log in with Google'
                 className='p-3 rounded-sm'>
                 <FcGoogle className='h-9 w-9' />

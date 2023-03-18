@@ -86,7 +86,7 @@ const NavBar = () => {
      <div tabIndex={0} className="flex items-center cursor-pointer">
      <label  className="avatar cursor-pointer">
         <div className="w-10 rounded-full">
-          <img src="https://t3.ftcdn.net/jpg/02/95/94/94/360_F_295949484_8BrlWkTrPXTYzgMn3UebDl1O13PcVNMU.jpg" />
+          <img src={user?.photoURL} />
         </div>
       </label>
         <p className="ml-1 hidden md:block">{user?.email}</p>
