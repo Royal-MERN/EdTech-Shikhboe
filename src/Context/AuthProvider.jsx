@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 const AuthContext = createContext();
 const auth = getAuth(app);
@@ -20,8 +20,26 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+   // Get current user info
+   useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+
+   // Logout user
+   const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
+
+
   // create a object for sharing function and data from one place
-  const authInfo = {createNewUser,};
+  const authInfo = {createNewUser, user,logOut};
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

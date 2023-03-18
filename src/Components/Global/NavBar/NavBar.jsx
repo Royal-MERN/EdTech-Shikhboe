@@ -1,11 +1,18 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "../../../Context/AuthProvider";
 import SquareBtn from "../Buttons/SquareBtn";
 
 const NavBar = () => {
+ //get user information
+ const { user,logOut}=useAuth();
 
-  const userid= '1234567890';
-  const username= 'John Doe';
+   // LogOut
+   const handelLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => alert(err.message));
+  };
 
   const menu = (
     <>
@@ -34,7 +41,7 @@ const NavBar = () => {
         <li><Link>Manage Payment</Link></li>
         <li><Link>Account</Link></li>
         <li><Link>Change Password</Link></li>
-        <li><Link>Logout</Link></li>
+        <li onClick={()=>handelLogOut()}><Link>Logout</Link></li>
         </>
     )
   return (
@@ -74,7 +81,7 @@ const NavBar = () => {
         </div>
         <div className='navbar-end'>
           {/* conditional login button */}
-          {userid? 
+          {user?.uid? 
           <div className="dropdown dropdown-end">
      <div tabIndex={0} className="flex items-center cursor-pointer">
      <label  className="avatar cursor-pointer">
@@ -82,7 +89,7 @@ const NavBar = () => {
           <img src="https://t3.ftcdn.net/jpg/02/95/94/94/360_F_295949484_8BrlWkTrPXTYzgMn3UebDl1O13PcVNMU.jpg" />
         </div>
       </label>
-        <p className="ml-1 hidden md:block">{username}</p>
+        <p className="ml-1 hidden md:block">{user?.email}</p>
         <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
 
      </div>

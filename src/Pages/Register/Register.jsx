@@ -4,45 +4,38 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../Context/AuthProvider";
 
-
-
 const Register = () => {
+  // error message storage
+  const [signUPError, setSignUPError] = useState("");
 
+  //get Authentication function
+  const { createNewUser } = useAuth();
 
-   // error message storage
-   const [signUPError, setSignUPError] = useState("");
+  // get From-hook function
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
 
-    //get Authentication function
-    const {createNewUser, }= useAuth();
-
-
- // get From-hook function
- const {
-  register,
-  formState: { errors },
-  handleSubmit,
-  reset,
-} = useForm();
-
-// SignUP From submit or Create user handel
-const handelSignUP = (data) => {
-  setSignUPError("");
-  createNewUser(data.email, data.password)
-    .then((result) => {
-      console.log(result);
-      if (result?.user?.uid) {
-       console.log(result);
-      }
-    })
-    .catch((error) => {
-      const errorMessage = error?.message?.split("/")[1];
-      setSignUPError(errorMessage?.split(")")[0]);
-      console.log(error);
-    })
-    .finally(() => {
-      
-    });
-};
+  // SignUP From submit or Create user handel
+  const handelSignUP = (data) => {
+    setSignUPError("");
+    createNewUser(data.email, data.password)
+      .then((result) => {
+        console.log(result);
+        if (result?.user?.uid) {
+          reset();
+        }
+      })
+      .catch((error) => {
+        const errorMessage = error?.message?.split("/")[1];
+        setSignUPError(errorMessage?.split(")")[0]);
+        console.log(error);
+      })
+      .finally(() => {});
+  };
 
   return (
     <>
@@ -79,10 +72,10 @@ const handelSignUP = (data) => {
                   className='w-full px-4 py-3 rounded-md bg-transparent border-2 focus:border-primary outline-none'
                 />
                 {errors.name && (
-              <p className='text-error mt-1' role='alert'>
-                {errors.name?.message}
-              </p>
-            )}
+                  <p className='text-error mt-1' role='alert'>
+                    {errors.name?.message}
+                  </p>
+                )}
               </div>
               <div className='space-y-1 text-sm'>
                 <label htmlFor='username' className='block dark:text-gray-700'>
@@ -134,13 +127,13 @@ const handelSignUP = (data) => {
                 )}
               </div>
               <button className='block w-full p-3 text-center rounded-sm btn-primary'>
-                <input type="submit" value="Sign up" />
+                <input type='submit' value='Sign up' />
               </button>
             </form>
             <div className='flex items-center pt-4 space-x-1'>
               <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
               <p className='px-3 text-sm dark:text-gray-400'>
-              Register with social accounts
+                Register with social accounts
               </p>
               <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
             </div>
@@ -148,16 +141,20 @@ const handelSignUP = (data) => {
               <button
                 aria-label='Log in with Google'
                 className='p-3 rounded-sm'>
-               <FcGoogle className="h-9 w-9"/>
+                <FcGoogle className='h-9 w-9' />
               </button>
               <button
                 aria-label='Log in with Twitter'
                 className='p-3 rounded-sm'>
-                <img className="h-8 w-8" src="https://iili.io/HXy95xe.png" alt="" />
+                <img
+                  className='h-8 w-8'
+                  src='https://iili.io/HXy95xe.png'
+                  alt=''
+                />
               </button>
             </div>
             <p className='text-xs text-center sm:px-6 dark:text-gray-400'>
-            Already have an account? 
+              Already have an account?
               <Link
                 rel='noopener noreferrer'
                 to='/login'
