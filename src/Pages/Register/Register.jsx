@@ -9,7 +9,13 @@ const Register = () => {
   const [signUPError, setSignUPError] = useState("");
 
   //get Authentication function
-  const { createNewUser, googleLogIn, setLoading, facebookLogin } = useAuth();
+  const {
+    createNewUser,
+    googleLogIn,
+    setLoading,
+    facebookLogin,
+    updateUserProfile,
+  } = useAuth();
 
   // get From-hook function
   const {
@@ -26,7 +32,7 @@ const Register = () => {
       .then((result) => {
         console.log(result);
         if (result?.user?.uid) {
-          reset();
+          userUPDATE(data.name)
         }
       })
       .catch((error) => {
@@ -35,6 +41,20 @@ const Register = () => {
         console.log(error);
       })
       .finally(() => {});
+  };
+
+  //updateUserProfile
+  const userUPDATE = (name) => {
+    const userDetails = { displayName: name };
+    updateUserProfile(userDetails)
+      .then((result) => {
+        console.log(result);
+        reset();
+      })
+      .catch((error) => {
+        const errorMessage = error?.message?.split("/")[1];
+        setSignUPError(errorMessage?.split(")")[0]);
+      });
   };
 
   // Google login handel

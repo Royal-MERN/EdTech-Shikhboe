@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../Context/AuthProvider";
 import SquareBtn from "../Buttons/SquareBtn";
+import avatar from '../../../../public/images/logo/avatar.webp'
 
 const NavBar = () => {
  //get user information
@@ -86,10 +87,10 @@ const NavBar = () => {
      <div tabIndex={0} className="flex items-center cursor-pointer">
      <label  className="avatar cursor-pointer">
         <div className="w-10 rounded-full">
-          <img src={user?.photoURL} />
+          <img src={`${user?.photoURL? user?.photoURL: avatar}`} />
         </div>
       </label>
-        <p className="ml-1 hidden md:block">{user?.email}</p>
+        <p className="ml-1 hidden md:block">{user?.displayName}</p>
         <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
 
      </div>
