@@ -40,7 +40,7 @@ const NavBar = () => {
         <li><Link>Certificate</Link></li>
         <li><Link>Payment History</Link></li>
         <li><Link>Manage Payment</Link></li>
-        <li><Link>Account</Link></li>
+        <li><Link to='/profile'>Account</Link></li>
         <li><Link>Change Password</Link></li>
         <li onClick={()=>handelLogOut()}><Link>Logout</Link></li>
         </>

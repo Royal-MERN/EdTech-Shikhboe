@@ -68,7 +68,7 @@ const Register = () => {
       .catch((error) => {
         console.log(error);
         const errorMessage = error?.message?.split("/")[1];
-        setLoginError(errorMessage?.split(")")[0]);
+        setSignUPError(errorMessage?.split(")")[0]);
       })
       .finally(() => {
         setLoading(false);
@@ -86,7 +86,7 @@ const Register = () => {
       .catch((error) => {
         console.log(error);
         const errorMessage = error?.message?.split("/")[1];
-        setLoginError(errorMessage?.split(")")[0]);
+        setSignUPError(errorMessage?.split(")")[0]);
       })
       .finally(() => {
         setLoading(false);
