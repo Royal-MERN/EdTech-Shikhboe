@@ -122,7 +122,8 @@ const NavBar = () => {
                 tabIndex={0}
                 className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-56'>
 
-                  {user.emailVerified? userMenu : <p className="py-10 pl-5">Please verify Your Email</p>}
+                  {/* {user.emailVerified? userMenu : <p className="py-10 pl-5">Please verify Your Email</p>} */}
+                  {userMenu }
 
                 
               </ul>

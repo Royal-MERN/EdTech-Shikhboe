@@ -3,8 +3,14 @@ import { FiCamera } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 import UserAvatar from "../../Components/UserAvatar/UserAvatar";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../Context/AuthProvider";
 
 const Profile = () => {
+
+  const {user}=useAuth();
+  console.log("🚀 ~ file: Profile.jsx:11 ~ Profile ~ user:", user)
+  
+
   const [profileImage, setProfileImage] = useState(null);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -17,6 +23,8 @@ const Profile = () => {
     };
     console.log(userInfo);
   };
+
+
   return (
     <div className='maxW py-10'>
       <div className='max-w-3xl mx-auto'>
@@ -57,6 +65,8 @@ const Profile = () => {
               type='text'
               placeholder='Your Full Name'
               className='input input-bordered w-full rounded'
+              value={user?.displayName}
+              disabled
             />
             <label className='label pt-5'>
               <span className='label-text text-lg'>Certificate Name</span>
@@ -66,6 +76,7 @@ const Profile = () => {
               type='text'
               placeholder='Type Your Certificate Name'
               className='input input-bordered w-full rounded'
+              value={user?.displayName}
             />
             <label className='label pt-5'>
               <span className='label-text text-lg'>Email</span>
@@ -75,6 +86,8 @@ const Profile = () => {
               type='text'
               placeholder='Type your email'
               className='input input-bordered w-full rounded'
+              value={user?.email}
+              disabled
             />
             <label className='label pt-5'>
               <span className='label-text text-lg'>Phone Number</span>
