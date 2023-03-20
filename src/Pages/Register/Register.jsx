@@ -15,6 +15,7 @@ const Register = () => {
     setLoading,
     facebookLogin,
     updateUserProfile,
+    emailVerification,
   } = useAuth();
 
   // get From-hook function
@@ -32,7 +33,7 @@ const Register = () => {
       .then((result) => {
         console.log(result);
         if (result?.user?.uid) {
-          userUPDATE(data.name)
+          userUPDATE(data.name);
         }
       })
       .catch((error) => {
@@ -50,6 +51,7 @@ const Register = () => {
       .then((result) => {
         console.log(result);
         reset();
+        sendEmailVerification()
       })
       .catch((error) => {
         const errorMessage = error?.message?.split("/")[1];
@@ -87,6 +89,20 @@ const Register = () => {
         console.log(error);
         const errorMessage = error?.message?.split("/")[1];
         setSignUPError(errorMessage?.split(")")[0]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  // send email verification
+  const sendEmailVerification = () => {
+    emailVerification()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
       })
       .finally(() => {
         setLoading(false);

@@ -6,6 +6,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -77,6 +78,11 @@ const AuthProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
+  // email verification
+  const emailVerification = () => {
+    return sendEmailVerification(auth.currentUser);
+  };
+
   // create a object for sharing function and data from one place
   const authInfo = {
     createNewUser,
@@ -88,6 +94,7 @@ const AuthProvider = ({ children }) => {
     facebookLogin,
     updateUserProfile,
     forgetPassword,
+    emailVerification
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
