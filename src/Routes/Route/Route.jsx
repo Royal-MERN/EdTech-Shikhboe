@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../Layout/MainLayout/MainLayout";
 import Error404 from "../../Pages/404Error/Error404";
 import Home from "../../Pages/Home/Home";
+import ForgetPassword from "../../Pages/Login/ForgetPassword";
 import Login from "../../Pages/Login/Login";
 import PrivacyPolicy from "../../Pages/PrivacyPolicy/PrivacyPolicy";
 import Profile from "../../Pages/Profile/Profile";
@@ -42,6 +43,9 @@ export const router = createBrowserRouter([
       {
         path:'/profile',
         element:<Profile></Profile>
+      },{
+        path:'/password-reset',
+        element:<ForgetPassword></ForgetPassword>
       }
     ],
   },

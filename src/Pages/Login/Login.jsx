@@ -132,12 +132,11 @@ const Login = () => {
                   </p>
                 )}
                 <div className='flex justify-end text-xs dark:text-gray-400'>
-                  <a
-                    rel='noopener noreferrer'
+                  <Link
                     className='link link-primary'
-                    href='#'>
+                    to='/password-reset'>
                     Forgot Password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               <button className='block w-full p-3 text-center rounded-sm btn-primary'>

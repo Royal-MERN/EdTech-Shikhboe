@@ -6,6 +6,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -29,11 +30,10 @@ const AuthProvider = ({ children }) => {
   };
 
   //updateUserProfile
-const updateUserProfile =(userDetails)=>{
+  const updateUserProfile = (userDetails) => {
     setLoading(true);
     return updateProfile(auth.currentUser, userDetails);
-}
-
+  };
 
   // sign in user
   const logIN = (email, password) => {
@@ -71,6 +71,12 @@ const updateUserProfile =(userDetails)=>{
     return signOut(auth);
   };
 
+  // forget password
+  const forgetPassword = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
+  };
+
   // create a object for sharing function and data from one place
   const authInfo = {
     createNewUser,
@@ -80,7 +86,8 @@ const updateUserProfile =(userDetails)=>{
     setLoading,
     googleLogIn,
     facebookLogin,
-    updateUserProfile
+    updateUserProfile,
+    forgetPassword,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
