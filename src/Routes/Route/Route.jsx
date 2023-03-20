@@ -7,6 +7,7 @@ import Login from "../../Pages/Login/Login";
 import PrivacyPolicy from "../../Pages/PrivacyPolicy/PrivacyPolicy";
 import Profile from "../../Pages/Profile/Profile";
 import Register from "../../Pages/Register/Register";
+import VerifyEmail from "../../Pages/Register/VerifyEmail";
 import Review from "../../Pages/Review/Review/Review";
 import Test from "../../Pages/test/Test";
 
@@ -37,16 +38,21 @@ export const router = createBrowserRouter([
         element: <PrivacyPolicy></PrivacyPolicy>,
       },
       {
-        path:'/course-details',
-        element:<Review></Review>
+        path: "/course-details",
+        element: <Review></Review>,
       },
       {
-        path:'/profile',
-        element:<Profile></Profile>
-      },{
-        path:'/password-reset',
-        element:<ForgetPassword></ForgetPassword>
-      }
+        path: "/profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "/password-reset",
+        element: <ForgetPassword></ForgetPassword>,
+      },
+      {
+        path: "/email-verify",
+        element: <VerifyEmail></VerifyEmail>,
+      },
     ],
   },
 ]);

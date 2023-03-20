@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../Context/AuthProvider";
 
 const Register = () => {
+  let navigate = useNavigate();
   // error message storage
   const [signUPError, setSignUPError] = useState("");
 
@@ -51,7 +52,7 @@ const Register = () => {
       .then((result) => {
         console.log(result);
         reset();
-        sendEmailVerification()
+        sendEmailVerification();
       })
       .catch((error) => {
         const errorMessage = error?.message?.split("/")[1];
@@ -100,6 +101,7 @@ const Register = () => {
     emailVerification()
       .then((result) => {
         console.log(result);
+        navigate('/email-verify')
       })
       .catch((error) => {
         console.log(error);
