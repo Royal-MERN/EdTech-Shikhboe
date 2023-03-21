@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../Context/AuthProvider";
+import axios from "axios";
 
 const Register = () => {
   let navigate = useNavigate();
@@ -32,9 +33,9 @@ const Register = () => {
     setSignUPError("");
     createNewUser(data.email, data.password)
       .then((result) => {
-        console.log(result);
         if (result?.user?.uid) {
           userUPDATE(data.name);
+          // saveUserInfo(data.name, result?.user?.email);
         }
       })
       .catch((error) => {
@@ -50,7 +51,7 @@ const Register = () => {
     const userDetails = { displayName: name };
     updateUserProfile(userDetails)
       .then((result) => {
-        console.log(result);
+        saveUserInfo(result?.user?.displayName, result?.user?.email);
         reset();
         sendEmailVerification();
       })
@@ -66,6 +67,7 @@ const Register = () => {
       .then((result) => {
         console.log(result);
         if (result?.user?.uid) {
+          saveUserInfo(result?.user?.displayName, result?.user?.email);
         }
       })
       .catch((error) => {
@@ -84,6 +86,7 @@ const Register = () => {
       .then((result) => {
         console.log(result);
         if (result?.user?.uid) {
+          saveUserInfo(result?.user?.displayName, result?.user?.email);
         }
       })
       .catch((error) => {
@@ -101,7 +104,7 @@ const Register = () => {
     emailVerification()
       .then((result) => {
         console.log(result);
-        navigate('/email-verify')
+        navigate("/email-verify");
       })
       .catch((error) => {
         console.log(error);
@@ -110,6 +113,23 @@ const Register = () => {
         setLoading(false);
       });
   };
+
+  // save user info in DB
+  const saveUserInfo = (name, email) => {
+    console.log("username", name, email);
+    axios
+      .post(`https://lms.api.asthaall.com/api/sing-Up`, {
+        name: name,
+        email: email,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log("Hello ", error);
+      });
+  };
+
   return (
     <>
       <section className='maxW py-10 lg:flex justify-center items-center gap-x-10 '>

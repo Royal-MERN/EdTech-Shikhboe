@@ -7,6 +7,7 @@ import avatar from "../../../../public/images/logo/avatar.webp";
 const NavBar = () => {
   //get user information
   const { user, logOut } = useAuth();
+  // console.log("🚀 ~ file: NavBar.jsx:10 ~ NavBar ~ user:", user)
   
   // LogOut
   const handelLogOut = () => {

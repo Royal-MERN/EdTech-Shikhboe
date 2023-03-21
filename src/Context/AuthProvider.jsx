@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
   //updateUserProfile
   const updateUserProfile = (userDetails) => {
     setLoading(true);
+    console.log("server");
     return updateProfile(auth.currentUser, userDetails);
   };
 
