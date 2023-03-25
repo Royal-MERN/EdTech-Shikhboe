@@ -39,7 +39,7 @@ const Footer = () => {
             <Link className='link link-hover text-base text-text2'>
               About
             </Link>
-            <Link className='link link-hover text-base text-text2'>
+            <Link to='/blog' className='link link-hover text-base text-text2'>
             Blog
             </Link>
             <Link className='link link-hover text-base text-text2'>

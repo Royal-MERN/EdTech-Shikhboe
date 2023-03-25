@@ -1,6 +1,8 @@
+import axios from "axios";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../Layout/MainLayout/MainLayout";
 import Error404 from "../../Pages/404Error/Error404";
+import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
 import ForgetPassword from "../../Pages/Login/ForgetPassword";
 import Login from "../../Pages/Login/Login";
@@ -53,6 +55,11 @@ export const router = createBrowserRouter([
         path: "/email-verify",
         element: <VerifyEmail></VerifyEmail>,
       },
+      {
+        path: "/blog",
+        loader:()=>axios.get('https://lms.api.asthaall.com/api/all-blogs'),
+        element: <Blogs></Blogs>,
+      }
     ],
   },
 ]);
