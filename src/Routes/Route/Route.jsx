@@ -2,6 +2,7 @@ import axios from "axios";
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../Layout/MainLayout/MainLayout";
 import Error404 from "../../Pages/404Error/Error404";
+import BlogDetails from "../../Pages/Blogs/BlogDetails";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
 import ForgetPassword from "../../Pages/Login/ForgetPassword";
@@ -59,6 +60,11 @@ export const router = createBrowserRouter([
         path: "/blog",
         loader:()=>axios.get('https://lms.api.asthaall.com/api/all-blogs'),
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/blog/:id",
+        loader:({params})=>axios.get(`https://lms.api.asthaall.com/api/details-blog/${params.id}`),
+        element: <BlogDetails></BlogDetails>
       }
     ],
   },

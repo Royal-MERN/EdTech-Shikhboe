@@ -3,7 +3,6 @@ import {  format } from 'date-fns'
 import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog }) => {
-  console.log("🚀 ~ file: BlogCard.jsx:5 ~ BlogCard ~ blog:", blog)
   
   return (
     <div className='rounded-md shadow-md bg-white'>
@@ -22,7 +21,7 @@ const BlogCard = ({ blog }) => {
           <h3 className='text-2xl pb-2'>{blog?.title}</h3>
         </div>
         <div className='space-y-3'>
-          <p>{blog?.details.slice(0, 100)}....<Link className="link link-primary">See more</Link></p>
+          <p>{blog?.details.slice(0, 100)}....<Link to={`/blog/${blog.id}`} className="link link-primary">See more</Link></p>
         </div>
       </div>
     </div>
