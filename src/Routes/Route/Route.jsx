@@ -4,6 +4,7 @@ import MainLayout from "../../Layout/MainLayout/MainLayout";
 import Error404 from "../../Pages/404Error/Error404";
 import BlogDetails from "../../Pages/Blogs/BlogDetails";
 import Blogs from "../../Pages/Blogs/Blogs";
+import Course from "../../Pages/Course/Course";
 import Home from "../../Pages/Home/Home";
 import ForgetPassword from "../../Pages/Login/ForgetPassword";
 import Login from "../../Pages/Login/Login";
@@ -65,6 +66,11 @@ export const router = createBrowserRouter([
         path: "/blog/:id",
         loader:({params})=>axios.get(`https://lms.api.asthaall.com/api/details-blog/${params.id}`),
         element: <BlogDetails></BlogDetails>
+      },
+      {
+        path: "/course",
+        loader:()=>axios.get('https://lms.api.asthaall.com/api/courses'),
+        element: <Course></Course>
       }
     ],
   },
