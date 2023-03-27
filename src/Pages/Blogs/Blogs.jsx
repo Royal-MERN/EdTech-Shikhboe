@@ -1,14 +1,25 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import BlogCard from "../../Components/Blog/BlogCard";
 
 const Blogs = () => {
-  const data = useLoaderData();
+  // get all blog from use loader
+  const blogs = useLoaderData();
+  let allBlog = blogs?.data?.blogs;
+  let blogCategories = blogs?.data?.blog_categories;
+  let recentBlog = blogs?.data?.recent_blog;
 
-  let allBlog = data.data.blogs;
-  let blogCategories = data.data.blog_categories;
-  let recentBlog = data.data.recent_blog;
-  console.log("🚀 ~ file: Blogs.jsx:11 ~ Blogs ~ recentBlog:", blogCategories);
+  const { isLoading, error, data:categoryBlogs } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () =>
+      fetch('https://lms.api.asthaall.com/api/category-blogs/1').then(
+        (res) => res.json(),
+      ),
+  })
+  console.log(categoryBlogs?.blogs);
+
+
 
   return (
     <>
@@ -22,14 +33,12 @@ const Blogs = () => {
 
         <div className='flex justify-between pb-5 pt-28 items-center flex-col sm:flex-row'>
           <div className='flex w-full sm:w-1/2 items-center justify-between sm:justify-start sm:pb-0 pb-3'>
-            <h3 className='text-2xl font-semibold pr-5'>All Blog</h3>
+            <h3 className='text-2xl font-semibold pr-5'>Blogs</h3>
             <select className='select w-full select-sm max-w-[150px] rounded'>
               <option>All</option>
-              <option>Homer</option>
-              <option>Marge</option>
-              <option>Bart</option>
-              <option>Lisa</option>
-              <option>Maggie</option>
+              {blogCategories.map((blogCategory) => (
+                <option key={blogCategory.uuid}>{blogCategory?.name}</option>
+              ))}
             </select>
           </div>
           <div className='form-control'>
@@ -37,7 +46,7 @@ const Blogs = () => {
               <input
                 type='text'
                 placeholder='Search…'
-                className='input input-bordered input-sm outline-none focus:outline-none focus:border-primary' 
+                className='input input-bordered input-sm outline-none focus:outline-none focus:border-primary'
               />
               <button className='btn btn-square btn-primary btn-sm'>
                 <svg
@@ -62,7 +71,6 @@ const Blogs = () => {
             <BlogCard key={blog?.uuid} blog={blog}></BlogCard>
           ))}
         </div>
-
       </section>
     </>
   );
