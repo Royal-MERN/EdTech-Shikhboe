@@ -8,7 +8,6 @@ const Blogs = () => {
   // set category id
   const categoryId = useRef(0);
 
-
   // get all blog from use loader
   const blogs = useLoaderData();
   let blogCategories = blogs?.data?.blog_categories;
@@ -81,11 +80,17 @@ const Blogs = () => {
           </div>
         </div>
         <div className=''>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-            {categoryBlogs?.blogs?.map((blog) => (
-              <BlogCard key={blog?.uuid} blog={blog}></BlogCard>
-            ))}
-          </div>
+          {categoryBlogs?.blogs?.length ? (
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+              {categoryBlogs?.blogs?.map((blog) => (
+                <BlogCard key={blog?.uuid} blog={blog}></BlogCard>
+              ))}
+            </div>
+          ) : (
+            <div className='flex items-center justify-center py-28'>
+              <h4 className="text-3xl ">Blogs is not found</h4>
+            </div>
+          )}
         </div>
       </section>
     </>
