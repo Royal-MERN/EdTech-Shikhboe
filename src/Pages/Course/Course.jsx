@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Course = () => {
   const coursesData = useLoaderData();
+  console.log("🚀 ~ file: Course.jsx:6 ~ Course ~ coursesData:", coursesData)
 
   //   const topCourses = coursesData?.data?.top-courses;
   const courses = coursesData?.data?.course;
